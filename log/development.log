@@ -1,0 +1,48 @@
+Started GET "/" for ::1 at 2023-01-17 00:12:53 -0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/zankyou/.asdf/installs/ruby/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/zankyou/.asdf/installs/ruby/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.1ms | Allocations: 585)
+Completed 200 OK in 13ms (Views: 4.8ms | ActiveRecord: 0.0ms | Allocations: 4652)
+
+
+Started GET "/hello" for ::1 at 2023-01-17 00:13:08 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/hello"):
+  
+Started GET "/articles" for ::1 at 2023-01-17 00:26:14 -0300
+  
+ActionController::RoutingError (uninitialized constant ArticlesController
+
+      Object.const_get(camel_cased_word)
+            ^^^^^^^^^^
+Did you mean?  AbstractController
+
+            raise MissingController.new(error.message, error.name)
+            ^^^^^):
+  
+Started GET "/articles" for ::1 at 2023-01-17 00:40:48 -0300
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  Rendered articles/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 285)
+  Rendered layout layouts/application.html.erb (Duration: 297.6ms | Allocations: 88874)
+Completed 200 OK in 303ms (Views: 299.5ms | ActiveRecord: 0.0ms | Allocations: 91874)
+
+
+  [1m[35m (11.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (10.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateArticles (20230117034714)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "articles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230117034714"]]
+  [1m[36mTRANSACTION (10.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-01-17 03:49:25.309852"], ["updated_at", "2023-01-17 03:49:25.309852"]]
+  [1m[36mTRANSACTION (11.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArticle Create (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Hello Rails"], ["body", "I am on Rails!"], ["created_at", "2023-01-17 03:55:55.650589"], ["updated_at", "2023-01-17 03:55:55.650589"]]
+  [1m[36mTRANSACTION (8.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
